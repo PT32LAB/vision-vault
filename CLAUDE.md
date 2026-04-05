@@ -94,10 +94,22 @@ When unsure, leave the dimension out rather than guessing. Better to have no sco
 - Use standard markdown [text](url) for external links
 - Also list related notes in the `related:` frontmatter (this powers the graph)
 
-### Language
-- Write in English for all content
-- Discussions and brainstorming may happen in Russian but published notes are English
-- If translating a concept from another language, include the original term
+### Language & i18n
+
+Locale suffix convention — each note can exist in multiple languages using filename suffixes:
+
+```
+welcome.en.md    ← English version
+welcome.es.md    ← Spanish version
+welcome.ru.md    ← Future language
+```
+
+- English (`.en.md`) is the primary language. Write English first.
+- Create `.es.md` / other locale files for translations.
+- If a locale file is missing, the build falls back to `.en.md`.
+- Wikilinks (`[[note-name]]`) resolve within the same locale context.
+- Discussions and brainstorming may happen in Russian but published notes use the locale suffix convention.
+- If translating a concept from another language, include the original term.
 
 ## Content Types
 
