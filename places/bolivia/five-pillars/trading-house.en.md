@@ -1,5 +1,7 @@
 ---
 title: "Trading House"
+slug: "pillars/trading"
+layout: "prose"
 description: "BARK's economic engine — market connector between Yungas farmers and international buyers"
 type: place
 cluster: regional-economy

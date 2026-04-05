@@ -1,5 +1,7 @@
 ---
 title: "Where to Be When Supply Chains Break"
+slug: "landing/resilience"
+layout: "landing"
 description: "Bolivia as a resilience hedge. Crisis analysis, safety data, and why physical community beats financial instruments."
 type: place
 cluster: resilience

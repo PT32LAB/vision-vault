@@ -1,5 +1,7 @@
 ---
 title: "Yungas Economy"
+slug: "economy"
+layout: "prose"
 description: "Bolivia macro economics, Yungas micro economy, business environment, and why BARK's cooperative structure works"
 type: place
 cluster: regional-economy

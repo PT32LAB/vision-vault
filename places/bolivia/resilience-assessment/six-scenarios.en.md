@@ -1,5 +1,7 @@
 ---
 title: "Six Crisis Scenarios"
+slug: "scenarios"
+layout: "prose"
 description: "17 countries analyzed across 6 crisis types with honest rankings -- where Bolivia wins and where it loses"
 type: place
 cluster: crisis-autonomy

@@ -1,5 +1,7 @@
 ---
 title: "Terms & Concepts"
+slug: "glossary"
+layout: "prose"
 description: "Key terms and concepts used throughout the BARK project, defined for clarity and cultural context."
 type: reference
 cluster: terminology

@@ -1,5 +1,7 @@
 ---
 title: "Build Systems That Matter"
+slug: "landing/builders"
+layout: "landing"
 description: "BARK needs engineers, fabricators, and infrastructure builders. Real constraints, open-source tools, and work that lasts."
 type: place
 cluster: builders

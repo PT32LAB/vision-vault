@@ -1,5 +1,7 @@
 ---
 title: "Infrastructure"
+slug: "pillars/infrastructure"
+layout: "prose"
 description: "Semi-autonomous systems for energy, water, food, and connectivity — BARK's physical foundation"
 type: place
 cluster: regional-economy

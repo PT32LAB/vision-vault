@@ -1,5 +1,7 @@
 ---
 title: "Frequently Asked Questions"
+slug: "faq"
+layout: "prose"
 description: "Honest answers to real concerns about BARK -- the basics, participation, practical matters, and hard questions."
 type: reference
 cluster: community

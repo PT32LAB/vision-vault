@@ -1,5 +1,7 @@
 ---
 title: "What is BARK?"
+slug: "landing/about"
+layout: "landing"
 description: "BARK in 60 seconds. Five components, one system. A community in the Bolivian cloud forest learning to provision itself."
 type: place
 cluster: overview

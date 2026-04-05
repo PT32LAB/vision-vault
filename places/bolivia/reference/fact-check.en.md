@@ -1,5 +1,7 @@
 ---
 title: "Fact-Check Register"
+slug: "factcheck"
+layout: "prose"
 description: "Every factual claim on the BARK site assessed and categorized: 571 claims across 27 pages with per-page evidence trails."
 type: reference
 cluster: transparency

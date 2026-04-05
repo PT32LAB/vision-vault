@@ -1,5 +1,7 @@
 ---
 title: "Retreat Center"
+slug: "pillars/retreat"
+layout: "prose"
 description: "Technoshamanic retreat blending ancient wisdom with modern practice — BARK's cultural and healing heart"
 type: place
 cluster: regional-economy

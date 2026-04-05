@@ -1,5 +1,7 @@
 ---
 title: "The Team"
+slug: "team"
+layout: "prose"
 description: "The people behind BARK -- an initial spark and growing circle of contributors"
 type: place
 cluster: human-potential

@@ -1,5 +1,7 @@
 ---
 title: "Why an Ark?"
+slug: "why"
+layout: "prose"
 description: "Not a prediction of collapse. An observation that the margin for error has gotten thinner, and the institutions meant to absorb shocks are already running hot."
 type: concept
 cluster: crisis-rationale

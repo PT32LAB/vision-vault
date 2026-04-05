@@ -1,5 +1,7 @@
 ---
 title: "Techno Park"
+slug: "pillars/technopark"
+layout: "prose"
 description: "Open-source R&D lab and maker space — BARK's innovation engine"
 type: place
 cluster: regional-economy

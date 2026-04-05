@@ -1,5 +1,7 @@
 ---
 title: "Aymara & Afro-Bolivian Traditions"
+slug: "traditions"
+layout: "prose"
 description: "Aymara heritage, Afro-Bolivian culture, ayllu governance, festivals, coca traditions, and language in the Yungas"
 type: place
 cluster: culture-media

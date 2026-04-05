@@ -1,5 +1,7 @@
 ---
 title: "Participation Pathways"
+slug: "participate"
+layout: "prose"
 description: "Five pathways for people who want to test whether they can build, contribute, and live inside BARK"
 type: place
 cluster: human-potential

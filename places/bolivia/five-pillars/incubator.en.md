@@ -1,5 +1,7 @@
 ---
 title: "Startup Incubator"
+slug: "pillars/incubator"
+layout: "prose"
 description: "Launch ventures that serve the community and the world — BARK's business launchpad"
 type: place
 cluster: regional-economy

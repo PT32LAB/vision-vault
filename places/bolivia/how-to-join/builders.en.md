@@ -1,5 +1,7 @@
 ---
 title: "Builders"
+slug: "builders"
+layout: "prose"
 description: "BARK needs engineers, makers, and fabricators to build real infrastructure at 1,750m in the Yungas"
 type: place
 cluster: regional-economy

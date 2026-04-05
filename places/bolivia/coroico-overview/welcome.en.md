@@ -1,5 +1,7 @@
 ---
 title: "Welcome to BARK"
+slug: ""
+layout: "home"
 description: "Homepage introducing BARK -- the Bolivian Ark -- a semi-autonomous community in the Yungas cloud forest at 1,750m."
 type: place
 cluster: regional-economy

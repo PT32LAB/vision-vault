@@ -1,5 +1,7 @@
 ---
 title: "Bolivia Resilience: An Honest Analysis"
+slug: "resilience"
+layout: "prose"
 description: "Research-backed analysis of Bolivia's strengths and weaknesses as a crisis location, with country comparisons and scenario ratings"
 type: place
 cluster: crisis-autonomy

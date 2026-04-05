@@ -1,5 +1,7 @@
 ---
 title: "Regional Integration"
+slug: "region"
+layout: "prose"
 description: "BARK's commitment to Coroico and the Yungas -- local suppliers, jobs, market access, partnerships, and honest risk acknowledgment."
 type: place
 cluster: regional-economy

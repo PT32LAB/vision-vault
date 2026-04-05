@@ -1,5 +1,7 @@
 ---
 title: "Gallery"
+slug: "gallery"
+layout: "prose"
 description: "Photos from the Yungas region near Coroico, Bolivia — where BARK is being built"
 type: reference
 cluster: regional-economy

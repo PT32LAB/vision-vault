@@ -1,5 +1,7 @@
 ---
 title: "Coroico Risks & Realities"
+slug: "risks"
+layout: "prose"
 description: "Safety data, risk disclosure, and honest assessment of what's dangerous, uncertain, and planned mitigations for BARK"
 type: place
 cluster: crisis-autonomy

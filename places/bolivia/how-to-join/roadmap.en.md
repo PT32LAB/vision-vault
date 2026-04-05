@@ -1,5 +1,7 @@
 ---
 title: "Roadmap"
+slug: "roadmap"
+layout: "prose"
 description: "BARK project timeline -- honest about where we are and where we hope to go"
 type: place
 cluster: regional-economy

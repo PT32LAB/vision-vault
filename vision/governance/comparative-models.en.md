@@ -1,5 +1,7 @@
 ---
 title: "Comparative Governance Models"
+slug: "governance"
+layout: "prose"
 description: "Six governance models studied for community self-governance. Mondragon, Auroville, Zapatistas, ayllu. What works and what doesn't."
 type: concept
 cluster: governance

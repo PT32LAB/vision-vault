@@ -1,5 +1,7 @@
 ---
 title: "Health & Wellness in the Yungas"
+slug: "health"
+layout: "prose"
 description: "Medical infrastructure near BARK, health plans, honest risks, altitude context, and what to bring"
 type: place
 cluster: crisis-autonomy

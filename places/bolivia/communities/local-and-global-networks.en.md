@@ -1,5 +1,7 @@
 ---
 title: "Local & Global Networks"
+slug: "network"
+layout: "prose"
 description: "Allies, partners, government programs, and global projects aligned with BARK's mission in the Yungas"
 type: place
 cluster: regional-economy

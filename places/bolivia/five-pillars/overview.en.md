@@ -1,5 +1,7 @@
 ---
 title: "Five Components"
+slug: "pillars"
+layout: "prose"
 description: "BARK's five interconnected components — the structural foundation of the community"
 type: place
 cluster: regional-economy

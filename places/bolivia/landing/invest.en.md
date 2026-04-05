@@ -1,5 +1,7 @@
 ---
 title: "A Cooperative in the Cloud Forest"
+slug: "landing/invest"
+layout: "landing"
 description: "BARK investment thesis. Cooperative structure, five investment modalities, revenue projections, and radical honesty about what exists today."
 type: place
 cluster: investment

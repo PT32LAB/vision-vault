@@ -1,5 +1,7 @@
 ---
 title: "The Vision"
+slug: "vision"
+layout: "prose"
 description: "BARK's vision: a semi-autonomous community in the Bolivian cloud forest with five linked components provisioning power, food, shelter, and governance."
 type: place
 cluster: regional-economy

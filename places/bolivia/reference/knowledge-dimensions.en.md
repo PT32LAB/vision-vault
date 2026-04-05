@@ -1,5 +1,7 @@
 ---
 title: "Knowledge Cosmos"
+slug: "explore"
+layout: "prose"
 description: "Dimensional explorer mapping BARK's knowledge across six dimensions: autonomy, technology, governance, economic, resilience, and scalability."
 type: reference
 cluster: knowledge-framework

@@ -1,5 +1,7 @@
 ---
 title: "Investment Modalities"
+slug: "investors"
+layout: "prose"
 description: "Capital deployment options for BARK -- cooperative shares, component funding, residency, working contributions, and financial projections"
 type: place
 cluster: regional-economy
