@@ -2,31 +2,71 @@
 
 ## What This Is
 
-This is the shared knowledge base for the NetworkTribes project — a community building autonomous, horizontally organized communities resilient to nation-state crises. This vault is an Obsidian-compatible collection of markdown files that serves as the single source of truth for the project's vision, tools, practices, and case studies.
+The single source of truth for all content in the NetworkTribes project. This is an Obsidian-compatible collection of markdown files with structured frontmatter. It renders as a website at https://pt32lab.github.io via the `pt32lab.github.io` repo (which mounts this vault as a git submodule).
 
-This content is rendered as an interactive website by a separate repo (pt32lab.github.io). You don't need to know how the rendering works. Just write good content following the conventions below.
+**You don't need to know how the rendering works.** Write good content following the conventions below, push to `main`, and the website rebuilds automatically.
+
+**Content repo:** https://github.com/PT32LAB/vision-vault
+**Website repo:** https://github.com/PT32LAB/PT32LAB.github.io
+**Live site:** https://pt32lab.github.io
 
 ## Vault Structure
 
 ```
 vision-vault/
-├── CLAUDE.md          ← You are here
-├── vision/            ← Core vision clusters (from the vision board)
-│   ├── _index.md      ← Overview: what is NetworkTribes
+├── CLAUDE.md              ← You are here
+├── places/                ← Geographic analyses
+│   └── bolivia/           ← BARK project content (main site)
+│       ├── _index.en.md   ← Bolivia overview
+│       ├── coroico-overview/   (4 notes)
+│       ├── five-pillars/       (6 notes)
+│       ├── economy-local/      (2 notes)
+│       ├── communities/        (2 notes)
+│       ├── resilience-assessment/ (4 notes)
+│       ├── how-to-join/        (4 notes)
+│       ├── reference/          (5 notes)
+│       └── landing/            (4 notes)
+├── vision/                ← Core cosmos concepts
 │   ├── crisis-and-autonomy/
 │   ├── governance/
 │   ├── technology-sovereignty/
 │   ├── regional-economy/
 │   ├── human-potential/
 │   └── culture-and-media/
-├── tools/             ← Specific technologies, methods, practices
-├── case-studies/      ← Real-world examples and analyses
-├── references/        ← External resources, reading lists
-├── places/            ← Geographic analyses (Bolivia thesis, etc.)
-└── failure-museum/    ← What didn't work and why
+├── tools/                 ← Specific technologies, methods
+├── case-studies/          ← Real-world examples
+├── references/            ← External resources
+└── failure-museum/        ← What didn't work and why
 ```
 
-Each cluster folder under `vision/` contains an `_index.md` that serves as the cluster overview (displayed as the 1D landing block for that cluster).
+**BARK content** lives under `places/bolivia/`. Conceptual frameworks that apply universally (not Bolivia-specific) go in `vision/`.
+
+## How Changes Get Published
+
+1. Edit markdown files in this repo (locally in Obsidian, or via GitHub)
+2. Push to `main`
+3. GitHub Actions triggers a rebuild of the website repo via `repository_dispatch`
+4. The website rebuilds with latest vault content and deploys to GitHub Pages
+
+**Requirement:** The vision-vault repo needs a `SITE_REBUILD_TOKEN` secret — a GitHub PAT with `repo` scope that can trigger the website repo's workflow.
+
+## Filename Convention — i18n
+
+Every content file uses a **locale suffix**:
+
+```
+welcome.en.md    ← English (primary)
+welcome.es.md    ← Spanish
+welcome.ru.md    ← Future language
+```
+
+- English (`.en.md`) is always written first
+- Create `.es.md` / other locale files for translations
+- If a locale file is missing, the website falls back to `.en.md`
+- Wikilinks (`[[note-name]]`) resolve within the same locale context
+- In Obsidian, both files appear side-by-side in the explorer — easy to see what's translated
+
+**Adding a new language:** Create `.{lang}.md` files in the vault + add the locale to `astro.config.mjs` in the website repo.
 
 ## Frontmatter Schema
 
@@ -35,19 +75,21 @@ Every note MUST have this frontmatter:
 ```yaml
 ---
 title: "Human-readable title"
-description: "One-line summary (used in tooltips, search results, AI context)"
+slug: "url-path"                    # maps to /{lang}/{slug} on the website
+layout: "prose"                     # prose | home | landing
+description: "One-line summary"
 type: concept | tool | practice | case-study | reference | place
 cluster: crisis-autonomy | governance | technology-sovereignty | regional-economy | human-potential | culture-media
 status: seed | research | tested | deployed
-dimensions:
-  autonomy: 0.0-1.0      # Independence from state/corporate systems
-  tech_complexity: 0.0-1.0 # Technical sophistication required
-  governance: 0.0-1.0      # Relevance to governance/decision-making
-  economic: 0.0-1.0        # Economic self-sufficiency contribution
-  resilience: 0.0-1.0      # Crisis resilience contribution
-  scalability: 0.0-1.0     # Works for 10 people? 100? 1000?
+dimensions:                         # optional, for future visualization
+  autonomy: 0.0-1.0
+  tech_complexity: 0.0-1.0
+  governance: 0.0-1.0
+  economic: 0.0-1.0
+  resilience: 0.0-1.0
+  scalability: 0.0-1.0
 tags: [array, of, freeform, tags]
-related: [other-note-filename-without-extension]
+related: [other-note-filename-without-locale-suffix]
 geographic: global | latin-america | bolivia | southeast-asia | etc.
 contributors: [github-handles]
 date_created: YYYY-MM-DD
@@ -56,116 +98,157 @@ date_updated: YYYY-MM-DD
 ```
 
 ### Required fields
-- title, description, type, cluster, status
+- title, slug, layout, description, type, cluster, status
 
 ### Optional but encouraged
-- dimensions (all six), tags, related, geographic, contributors
+- dimensions (all six), tags, related, geographic, contributors, hero
+
+### The `slug` field
+
+The `slug` determines the URL path on the website. Examples:
+
+| File path | slug | Website URL |
+|-----------|------|-------------|
+| `places/bolivia/coroico-overview/welcome.en.md` | `""` (empty) | `/en/` |
+| `places/bolivia/coroico-overview/the-vision.en.md` | `"vision"` | `/en/vision` |
+| `places/bolivia/five-pillars/technopark.en.md` | `"pillars/technopark"` | `/en/pillars/technopark` |
+| `places/bolivia/landing/invest.en.md` | `"landing/invest"` | `/landing/invest` |
+| `vision/governance/comparative-models.en.md` | `"governance"` | `/en/governance` |
+
+The vault folder structure and the URL structure are independent — `slug` is the bridge.
+
+### The `hero` field (optional)
+
+Adds a photo hero section at the top of the page:
+
+```yaml
+hero:
+  image: /images/yungas/valley.jpg    # path in website's public/ folder
+  label: "SHORT LABEL"               # green label above title
+  headline: "Subtitle or tagline"    # body text below title in hero
+  body: "Longer body text with <strong>HTML</strong> allowed"
+  cta:                                # optional call-to-action buttons
+    - text: "Write to Us"
+      href: "mailto:contact@pt32lab.org"
+      style: primary                  # primary (green) | secondary (text link)
+```
+
+When `hero` is present, the page title renders as the big headline in the hero. `headline` or `body` renders as subtitle text below it. Without `hero`, pages get a plain accent-band header.
+
+**The `home` layout** is special: it uses `hero.headline` as the display-size text (e.g., "Soil and voltage.") instead of the page title.
 
 ### Dimension scoring guide
 
-Score each dimension 0.0 to 1.0:
-
 | Score | Meaning |
 |-------|---------|
-| 0.0-0.2 | Minimal relevance or capability in this dimension |
+| 0.0-0.2 | Minimal relevance |
 | 0.3-0.5 | Moderate relevance |
-| 0.6-0.8 | Strong relevance or capability |
-| 0.9-1.0 | This is a defining characteristic |
+| 0.6-0.8 | Strong relevance |
+| 0.9-1.0 | Defining characteristic |
 
-When unsure, leave the dimension out rather than guessing. Better to have no score than a misleading one.
+When unsure, leave the dimension out rather than guessing.
 
 ## Content Guidelines
 
 ### Tone
 - Pragmatic, not utopian. "Total pragmatism" is a core value.
 - Evidence-based. Cite sources. Link to references.
-- Honest about tradeoffs and limitations. If something doesn't work, say so.
-- Accessible but not dumbed down. Write for smart people who may not have domain expertise.
+- Honest about tradeoffs and limitations.
+- Accessible but not dumbed down. Write for smart people without domain expertise.
+- **No AI-sounding patterns:** no "Whether you," "Here's how," "Looking for," "Ready to?"
+
+### Terminology
+- **"Semi-autonomous"** not "off-grid" (we maintain grid connection as backup)
+- **"Components"** not "pillars" (pillars reserved for values/principles)
+- **"Initial spark"** for Drow, not "founder" or "co-founder"
 
 ### Structure
 - Start with a one-paragraph summary that could stand alone
-- Use headers (##) to organize sections
+- Use `##` headings to organize sections — these become the TOC sidebar on the website
+- Use `---` (horizontal rules) for visual section breaks — these render as green accent lines
 - Include a "Limitations" or "Tradeoffs" section where relevant
-- End with "Related" links to other vault notes (using [[wikilinks]])
+- End with "Related" links using [[wikilinks]]
 - Keep notes focused — one concept per note. If it's getting long, split it.
 
 ### Links
-- Use Obsidian [[wikilinks]] for internal connections
-- Use standard markdown [text](url) for external links
-- Also list related notes in the `related:` frontmatter (this powers the graph)
+- **Internal:** Use Obsidian `[[wikilinks]]` — the build converts them to proper HTML links using the slug map
+- **With display text:** `[[note-name|Display Text]]`
+- **External:** Use standard markdown `[text](url)`
+- **Also list** related notes in the `related:` frontmatter (this powers the knowledge graph)
 
-### Language & i18n
-
-Locale suffix convention — each note can exist in multiple languages using filename suffixes:
-
-```
-welcome.en.md    ← English version
-welcome.es.md    ← Spanish version
-welcome.ru.md    ← Future language
-```
-
-- English (`.en.md`) is the primary language. Write English first.
-- Create `.es.md` / other locale files for translations.
-- If a locale file is missing, the build falls back to `.en.md`.
-- Wikilinks (`[[note-name]]`) resolve within the same locale context.
-- Discussions and brainstorming may happen in Russian but published notes use the locale suffix convention.
-- If translating a concept from another language, include the original term.
+### Images
+- Reference images from the website's `public/` folder: `![alt](/images/yungas/valley.jpg)`
+- Available photos: `valley.jpg`, `coroico-clouds.jpg`, `yungas-landscape.jpg`, `death-road.jpg`, `tocana-landscape.jpg`, `road-panorama.jpg`, `market.jpg`
+- Images in markdown body render with rounded corners and margin
 
 ## Content Types
 
+### Places (places/)
+Geographic analyses. The Bolivia thesis. Data-heavy, honest about downsides. **BARK content lives here.**
+
 ### Concepts (vision/)
-Big ideas, frameworks, theories. "What is the ayllu governance system?" "Why power acts as a memetic virus." These are the nodes that define the intellectual landscape.
+Big ideas and frameworks that apply universally — not tied to one place. "Why power acts as a memetic virus." "Comparative governance models."
 
 ### Tools (tools/)
-Specific, actionable things a community can use. "LoRa mesh networking." "Sociocracy 3.0 decision process." "Composting toilet systems." Practical, with enough detail to evaluate and implement.
+Specific, actionable things. "LoRa mesh networking." "Sociocracy 3.0 process." Practical, with enough detail to evaluate and implement.
 
 ### Case Studies (case-studies/)
-Real-world examples. "Mondragon cooperatives — 70 years of worker ownership." "Why commune X failed after 3 years." Factual, analytical, lessons-focused.
+Real-world examples. Factual, analytical, lessons-focused.
 
 ### References (references/)
-Curated external resources. Books, papers, websites, organizations. Brief annotation of why each matters.
-
-### Places (places/)
-Geographic analyses. The Bolivia thesis. Southeast Asia options. Climate data, legal frameworks, cost analysis. Data-heavy, honest about downsides.
+Curated external resources. Brief annotation of why each matters.
 
 ### Failure Museum (failure-museum/)
-What didn't work and why. This is one of the most valuable sections. Analyzing failed intentional communities, collapsed cooperatives, governance experiments that imploded. Every failure note must have a "Lessons" section.
+What didn't work and why. Every failure note must have a "Lessons" section.
 
 ## How to Contribute
 
-### If you're a core team member
-- Clone this repo, open in Obsidian, edit, push
-- Use Obsidian Git plugin for sync
-- Exclude `.obsidian/workspace.json` from commits (add to .gitignore)
+### Core team (Obsidian workflow)
+1. Clone this repo, open in Obsidian
+2. Edit markdown files, preview in Obsidian
+3. Push to `main` — website rebuilds automatically
+4. Use Obsidian Git plugin for sync
 
-### If you're a community contributor
-- Fork → edit → PR
-- Or use the browser-based editor (if Decap CMS is set up)
+### Community contributors
+1. Fork → edit → PR
+2. Follow the frontmatter schema exactly
+3. Set `status: seed` for new notes
 
-### If you're an AI agent
-- Follow the frontmatter schema exactly
+### AI agents
+- Follow the frontmatter schema exactly — the build will fail on invalid frontmatter
 - Read existing notes in the same cluster before writing new ones (avoid duplication)
 - Set `status: seed` for new notes — humans will review and upgrade
 - Include your agent identifier in `contributors:`
 - Don't modify other contributors' notes without explicit instruction
-- When in doubt, create a new note rather than editing an existing one
+- **Test that your frontmatter parses** — the schema is validated by Zod in `src/content.config.ts`
 
 ## Quality Checklist
 
 Before committing a new note:
-- [ ] Frontmatter has all required fields
+- [ ] Filename has locale suffix (`.en.md`)
+- [ ] Frontmatter has all required fields (title, slug, layout, description, type, cluster, status)
+- [ ] `slug` maps to the desired URL path
 - [ ] Dimensions are scored (or deliberately omitted)
 - [ ] Description is a real one-liner (not just repeating the title)
-- [ ] At least one [[wikilink]] to another vault note
+- [ ] At least one `[[wikilink]]` to another vault note
+- [ ] `related:` frontmatter lists connected notes
 - [ ] Status is appropriate (seed for new, research for well-sourced)
-- [ ] No broken links
-- [ ] Spell-checked
+- [ ] No broken external links
 
-## Current State
+## What NOT to Do
 
-The vault is being seeded. Priority content:
-1. Vision cluster overviews (_index.md for each cluster)
-2. Bolivia thesis (places/bolivia/)
-3. Key governance models (ayllu, sociocracy, Mondragon)
-4. Technology sovereignty basics (mesh networking, local AI, off-grid compute)
-5. First failure museum entries
+- Don't claim things exist that don't (no land, no entity, no revenue yet)
+- Don't use "off-grid" — say "semi-autonomous"
+- Don't put speculative revenue projections on the investors page
+- Don't add ayahuasca references outside the retreat page (legal risk)
+- Don't duplicate slug values — each slug must be unique across the vault
+- Don't use locale prefixes in slugs (wrong: `"en/vision"`, right: `"vision"`)
+- Don't put BARK-specific content in `vision/` — it belongs in `places/bolivia/`
+
+## Current State (April 2026)
+
+34 vault notes seeded from the BARK hackathon site. Priority next steps:
+1. Real Spanish translations for key pages (currently ES falls back to EN)
+2. Dimension scoring for all notes (Phase 3 of implementation plan)
+3. New cosmos-level content: tools/, case-studies/, failure-museum/
+4. Additional places/ entries for comparison (Southeast Asia, etc.)

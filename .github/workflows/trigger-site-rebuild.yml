@@ -1,0 +1,16 @@
+name: Trigger site rebuild
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger pt32lab.github.io rebuild
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.SITE_REBUILD_TOKEN }}
+          repository: PT32LAB/PT32LAB.github.io
+          event-type: vault-updated
