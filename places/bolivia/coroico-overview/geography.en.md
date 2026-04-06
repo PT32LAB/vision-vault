@@ -3,6 +3,10 @@ title: "Geography: Coroico & the Yungas"
 slug: "location"
 layout: "prose"
 description: "Location assessment for BARK -- climate, biodiversity, infrastructure, legal framework, risks, and community context in Coroico, Bolivia."
+hero:
+  image: /images/yungas/coroico-clouds.jpg
+  label: "Location"
+  headline: "Coroico, Yungas, Bolivia."
 type: place
 cluster: regional-economy
 status: research

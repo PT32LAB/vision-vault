@@ -3,6 +3,14 @@ title: "Participation Pathways"
 slug: "participate"
 layout: "prose"
 description: "Five pathways for people who want to test whether they can build, contribute, and live inside BARK"
+hero:
+  image: /images/yungas/road-panorama.jpg
+  label: "Get Involved"
+  headline: "Four ways in."
+  cta:
+    - text: "Write to Us"
+      href: "mailto:contact@pt32lab.org"
+      style: primary
 type: place
 cluster: human-potential
 status: research

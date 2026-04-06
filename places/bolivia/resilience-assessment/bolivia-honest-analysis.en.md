@@ -3,6 +3,10 @@ title: "Bolivia Resilience: An Honest Analysis"
 slug: "resilience"
 layout: "prose"
 description: "Research-backed analysis of Bolivia's strengths and weaknesses as a crisis location, with country comparisons and scenario ratings"
+hero:
+  image: /images/yungas/yungas-landscape.jpg
+  label: "Resilience"
+  headline: "Bolivia: an honest analysis."
 type: place
 cluster: crisis-autonomy
 status: research

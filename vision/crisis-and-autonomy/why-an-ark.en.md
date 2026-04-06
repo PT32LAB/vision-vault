@@ -3,6 +3,10 @@ title: "Why an Ark?"
 slug: "why"
 layout: "prose"
 description: "Not a prediction of collapse. An observation that the margin for error has gotten thinner, and the institutions meant to absorb shocks are already running hot."
+hero:
+  image: /images/yungas/yungas-landscape.jpg
+  label: "The Thesis"
+  headline: "The supply chain<br/>is the civilization."
 type: concept
 cluster: crisis-rationale
 status: research

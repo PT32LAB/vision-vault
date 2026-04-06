@@ -3,6 +3,10 @@ title: "Coroico Risks & Realities"
 slug: "risks"
 layout: "prose"
 description: "Safety data, risk disclosure, and honest assessment of what's dangerous, uncertain, and planned mitigations for BARK"
+hero:
+  image: /images/yungas/death-road.jpg
+  label: "Risk Disclosure"
+  headline: "What could go wrong."
 type: place
 cluster: crisis-autonomy
 status: research

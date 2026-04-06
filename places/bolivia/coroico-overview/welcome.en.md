@@ -3,6 +3,18 @@ title: "Welcome to BARK"
 slug: ""
 layout: "home"
 description: "Homepage introducing BARK -- the Bolivian Ark -- a semi-autonomous community in the Yungas cloud forest at 1,750m."
+hero:
+  image: /images/yungas/valley.jpg
+  label: "Coroico, Bolivia -- 1,750 m"
+  headline: "Soil and voltage.<br/>A community that tends itself."
+  body: "BARK -- the <strong>Bolivian Ark</strong> -- is a community learning to provision itself in the Yungas cloud forest. Five organs, one body. All of it published. All of it forkable."
+  cta:
+    - text: "Write to Us"
+      href: "mailto:contact@pt32lab.org"
+      style: primary
+    - text: "Read the Vision"
+      href: "/en/vision"
+      style: secondary
 type: place
 cluster: regional-economy
 status: research

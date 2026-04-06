@@ -3,6 +3,10 @@ title: "Investment Modalities"
 slug: "investors"
 layout: "prose"
 description: "Capital deployment options for BARK -- cooperative shares, component funding, residency, working contributions, and financial projections"
+hero:
+  image: /images/yungas/tocana-landscape.jpg
+  label: "For Investors"
+  headline: "Capital for durable capability."
 type: place
 cluster: regional-economy
 status: research

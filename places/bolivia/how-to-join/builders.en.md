@@ -3,6 +3,10 @@ title: "Builders"
 slug: "builders"
 layout: "prose"
 description: "BARK needs engineers, makers, and fabricators to build real infrastructure at 1,750m in the Yungas"
+hero:
+  image: /images/yungas/death-road.jpg
+  label: "For Builders"
+  headline: "Build real systems<br/>in the Yungas."
 type: place
 cluster: regional-economy
 status: research

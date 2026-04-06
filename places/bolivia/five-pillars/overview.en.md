@@ -3,6 +3,10 @@ title: "Five Components"
 slug: "pillars"
 layout: "prose"
 description: "BARK's five interconnected components — the structural foundation of the community"
+hero:
+  image: /images/yungas/valley.jpg
+  label: "Components"
+  headline: "Five organs, one body."
 type: place
 cluster: regional-economy
 status: research
