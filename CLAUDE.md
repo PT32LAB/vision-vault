@@ -6,15 +6,14 @@ The single source of truth for all content in the NetworkTribes project. This is
 
 **You don't need to know how the rendering works.** Write good content following the conventions below, push to `main`, and the website rebuilds automatically.
 
-**Content repo:** https://github.com/PT32LAB/vision-vault
-**Website repo:** https://github.com/PT32LAB/PT32LAB.github.io
+**Content repo:** https://github.com/PT32LAB/vision-vault (this folder)
+**Website repo:** https://github.com/PT32LAB/PT32LAB.github.io (likely available in `../pt32lab.github.io` folder)
 **Live site:** https://pt32lab.github.io
 
 ## Vault Structure
 
 ```
 vision-vault/
-├── CLAUDE.md              ← You are here
 ├── places/                ← Geographic analyses
 │   └── bolivia/           ← BARK project content (main site)
 │       ├── _index.en.md   ← Bolivia overview
@@ -200,6 +199,100 @@ Curated external resources. Brief annotation of why each matters.
 
 ### Failure Museum (failure-museum/)
 What didn't work and why. Every failure note must have a "Lessons" section.
+
+## Content Ingestion Workflow
+
+This is the primary job of agents in this repo. A human may drop a raw URL, a video link, a photo of a business card, a screenshot of an article, or a description of something they encountered. The agent's job is to evaluate it, route it, and either create a vault note or ask the minimum questions needed to do so.
+
+### Step 1 — Create a board task first
+
+Before writing any content, create a task file in `.polyphony/board/todo/` so other agents and humans see the work is claimed.
+
+Task filename convention: `{CLUSTER-ABBR}-{NNN}.md` (e.g., `TOOL-003.md`, `REF-007.md`, `BARK-012.md`).
+
+```yaml
+---
+id: BARK-012
+title: Evaluate: [brief description of raw input]
+priority: 2
+labels: [ingestion, {content-type}]
+created_at: YYYY-MM-DDTHH:MM:SSZ
+updated_at: YYYY-MM-DDTHH:MM:SSZ
+---
+
+Source: [URL or description of raw input]
+Action: Evaluate and route to vault
+```
+
+Then move it to `in-progress/` and commit — follow the full board protocol from the board-management-skill.
+
+### Step 2 — Evaluate the input
+
+Ask yourself these questions in order:
+
+**Is it relevant to this project?**
+The project clusters are: crisis-autonomy, governance, technology-sovereignty, regional-economy, human-potential, culture-media. If the content doesn't map to any cluster even loosely, flag it to the human and close the task as `cancelled/`.
+
+**What type of content is it?**
+
+| If the input is... | It likely belongs in... |
+|--------------------|------------------------|
+| A tool, technology, method, or product (URL, demo, business card for a tech company) | `tools/` |
+| A real-world project or community doing something relevant | `case-studies/` |
+| An article, paper, book, or dataset | `references/` |
+| A geographic location or region worth analyzing | `places/` |
+| A conceptual framework, philosophy, or governance model | `vision/` |
+| Something that failed with lessons to draw | `failure-museum/` |
+| Bolivia/BARK-specific content | `places/bolivia/` |
+
+**Is it specific enough to write a note?**
+A business card gives a name and maybe a URL — fetch the URL before writing. A video link needs a summary of what it shows. A photo of a tool needs identification. Gather what you need before drafting.
+
+### Step 3 — Disambiguation protocol
+
+**Proceed without asking** when:
+- The content type and cluster are clear
+- The target section is unambiguous
+- You have enough information to write a `status: seed` note
+
+**Ask exactly one focused question** when:
+- The geographic scope is unclear (Bolivia-specific vs. universal?)
+- The content could fit two clusters with equal weight
+- A business card / contact represents a potential partner — is this a reference or a relationship to track?
+- The human's intent is ambiguous (are they contributing this content, or just sharing for awareness?)
+
+**Never ask multiple questions at once.** Ask the most blocking question, act on the answer, then ask the next if needed.
+
+### Step 4 — Write the vault note
+
+Follow the standard frontmatter schema. For ingested content:
+- Always set `status: seed`
+- Include the source URL in the note body under a `## Source` heading
+- Add your agent identifier to `contributors:`
+- For business cards / contacts: create a note in `references/` with the person's name, organization, relevance to the project, and contact details in the body
+
+For video content, include a `## Summary` section with key points extracted from the video before any editorial content.
+
+### Step 5 — Complete the board task
+
+1. Append a completion report to the task file
+2. Move it to `review/`
+3. Commit with `board: {TASK-ID} in-progress -> review`
+
+The human reviews, upgrades `status` from `seed` to `research` or higher when validated, and moves the task to `done/`.
+
+### Ingestion ID prefixes
+
+| Prefix | Use for |
+|--------|---------|
+| `BARK-` | Bolivia/BARK-specific content |
+| `TOOL-` | New tool or technology |
+| `REF-` | External reference or contact |
+| `CASE-` | Case study |
+| `VIS-` | Vision/concept content |
+| `FAIL-` | Failure museum entries |
+
+---
 
 ## How to Contribute
 
