@@ -14,7 +14,7 @@ dimensions:
   resilience: 0.6
   scalability: 0.3
 tags: [solarpunk, animism, ai, place-based-ai, ecovillage, community-building, land-selection, sociocracy, regenerative, substack, publication]
-related: [low-tech-magazine, great-simplification, the-alternative]
+related: [low-tech-magazine, great-simplification, the-alternative, sociocracy-3-0, land-selection-framework, community-weaving-toolkit]
 geographic: global
 contributors: [claude-opus]
 date_created: 2026-05-31
@@ -55,7 +55,7 @@ The catalogue splits into three strands:
 The user asked specifically for tools/links. The two community/land posts are where they cluster.
 
 **Built by the author**
-- **Land Selection Framework** — live prototype: `land-selection-framework.vercel.app`. Exports to **Jupyter** and **QGIS**; draws on public datasets for climate projections, soil registries, forest-cover trajectories, water-stress models, geopolitical/conflict indices, regenerative-network directories, and land-use history. **Directly reusable for the Coroico siting work.**
+- **Land Selection Framework** — live prototype: `land-selection-framework.vercel.app`. Exports to **Jupyter** and **QGIS**; draws on public datasets for climate projections, soil registries, forest-cover trajectories, water-stress models, geopolitical/conflict indices, regenerative-network directories, and land-use history. Currently covers EU + North America only — so it's a *methodology to replicate* for Coroico, not a usable map. Now seeded as [[land-selection-framework]].
 - **Mythic Ops** — a personal multi-agent Claude Code orchestration layer with a `/summon` command and named agents (Indra, Heartwood, Forge, Seedbed, Spanda, Alexandria, Canopy, Fathom). Idiosyncratic, but a concrete example of agent-naming-as-design.
 
 **Community-weaving methods tested (from *Tools for Living Together*)**
@@ -71,8 +71,8 @@ The user asked specifically for tools/links. The two community/land posts are wh
 
 ## Why it matters for the project
 
-1. **Land Selection Framework is an off-the-shelf asset.** Its eight dimensions (climate trajectory, water stress, soil carbon, forest trend, solar potential, conflict proximity, regenerative-network density, population density) are close to what a rigorous semi-autonomous-site analysis for Coroico needs. The "show the axes, let the community judge" stance matches this vault's *total pragmatism* / honest-about-tradeoffs tone. Strong candidate to seed a `tools/` note.
-2. **A real tool catalogue for the human layer.** *Tools for Living Together* is effectively a curated index into the community-governance space (Sociocracy 3.0, NVC, restorative circles, ecovillage networks). Several of these — especially Sociocracy 3.0 — are flagged in CLAUDE.md as `tools/` gaps; this post is a ready map of where to look.
+1. **Land Selection Framework is an off-the-shelf asset.** Its eight dimensions (climate trajectory, water stress, soil carbon, forest trend, solar potential, conflict proximity, regenerative-network density, population density) are close to what a rigorous semi-autonomous-site analysis for Coroico needs. The "show the axes, let the community judge" stance matches this vault's *total pragmatism* / honest-about-tradeoffs tone. Now seeded as [[land-selection-framework]].
+2. **A real tool catalogue for the human layer.** *Tools for Living Together* is effectively a curated index into the community-governance space (Sociocracy 3.0, NVC, restorative circles, ecovillage networks). Now classified in full as [[community-weaving-toolkit]], with [[sociocracy-3-0]] broken out as its own note.
 3. **Closest living peer to the Low-Tech Magazine framing.** Both treat the *relationship* between technology and the living world as the design variable. *Place-Based AI* and *Solarpunk Worldbuilding* are useful tone/argument references for the technology-sovereignty cluster — energy-bounded, place-bound computation rather than off-grid romance.
 4. **Audience overlap.** Readers here already accept reciprocity-with-place and energy-bounded technology as premises — pre-qualified for the BARK framing.
 
